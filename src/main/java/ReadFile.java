@@ -5,8 +5,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReadFile {
+
     private ArrayList<String> lines;
-    public ArrayList<String> getLines() { return lines; }
+
+    private ReadFile() {}
+
+    public ReadFile(String fname) throws FileNotFoundException {
+        if (!doReadFile(fname)) {
+            throw new FileNotFoundException("Error reading file: " + fname);
+        }
+    }
+
+    public ArrayList<String> getLines() {
+        return lines;
+    }
+
     public Boolean doReadFile(String fname) {
         lines = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fname))) {
@@ -20,10 +33,5 @@ public class ReadFile {
         }
         return false;
     }
-    private ReadFile() {}
-    public ReadFile(String fname) throws FileNotFoundException {
-        if (!doReadFile(fname)) {
-            throw new FileNotFoundException("Error reading file: " + fname);
-        }
-    }
+
 }
