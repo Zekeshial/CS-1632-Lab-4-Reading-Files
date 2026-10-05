@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -10,22 +11,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ReadData p = new ReadData("data/GettysburgAddress.txt");
-        System.out.println(p.convertParagraphIntoArrayListOfStrings());
+        DataAsParagraphs p = new DataAsParagraphs("data/GettysburgAddress.txt");
+        p.convertParagraphIntoArrayListOfStrings();
+        p.printParagraph();
 
         System.out.println();
         try {
             ReadFile fileRes = new ReadFile("data/GettysburgAddress.txt");
             ArrayList<String> lines = fileRes.getLines();
-            int linenum = 1;
+            int lineNum = 1;
             for (String line: lines) {
-                System.out.println(linenum + ": " + line);
-                linenum++;
+                System.out.println(lineNum + ": " + line);
+                lineNum++;
             }
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println(e.getStackTrace());
+            System.out.println(Arrays.toString(e.getStackTrace()));
         }
     }
 }
