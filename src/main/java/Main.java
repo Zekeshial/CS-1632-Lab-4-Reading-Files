@@ -15,19 +15,5 @@ public class Main {
         p.convertParagraphIntoArrayListOfStrings();
         p.printParagraph();
 
-        System.out.println();
-        try {
-            ReadFile fileRes = new ReadFile("data/GettysburgAddress.txt");
-            ArrayList<String> lines = fileRes.getLines();
-            int lineNum = 1;
-            for (String line: lines) {
-                System.out.println(lineNum + ": " + line);
-                lineNum++;
-            }
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println(Arrays.toString(e.getStackTrace()));
-        }
     }
 }
